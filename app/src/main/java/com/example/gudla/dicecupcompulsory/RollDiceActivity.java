@@ -1,6 +1,7 @@
 package com.example.gudla.dicecupcompulsory;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatImageView;
@@ -12,6 +13,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 
+import com.example.gudla.dicecupcompulsory.BE.Roll;
 import com.example.gudla.dicecupcompulsory.Model.RollModel;
 
 import java.util.ArrayList;
@@ -41,14 +43,24 @@ public class RollDiceActivity extends AppCompatActivity {
         mRollModel = RollModel.getInstance();
         mDiceValues = new ArrayList<>();
 
+        Button btnResults = findViewById(R.id.btnResult);
         Button btnRoll = findViewById(R.id.btnRoll);
         mDiceLayout = findViewById(R.id.linLDices);
 
         initlSpinner();
         btnRoll.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
+                rollDice();
+            }
+        });
 
+        btnResults.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(RollDiceActivity.this, ResultsActivity.class);
+                startActivity(i);
             }
         });
 
@@ -84,6 +96,8 @@ public class RollDiceActivity extends AppCompatActivity {
     }
 
 
+
+
     private void initlSpinner()
     {
         mAmountOfDice = findViewById(R.id.btnSpinner);
@@ -110,6 +124,17 @@ public class RollDiceActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void rollDice()
+    {
+        Roll roll = new Roll();
+        for (Dice dice: mDiceList)
+        {
+            dice.rollDice();
+            roll.addDice(dice.getValue());
+        }
+        mRollModel.addRoll(roll);
     }
 
     private void createDice(int amountOfDice)
@@ -166,7 +191,7 @@ public class RollDiceActivity extends AppCompatActivity {
          */
         public Dice(Context context) {
             super(context);
-            rollDie();
+            rollDice();
         }
 
         public Dice(Context context, int value) {
@@ -175,11 +200,12 @@ public class RollDiceActivity extends AppCompatActivity {
             setImage();
         }
 
-        public int getValue() {
+        public int getValue()
+        {
             return mValue;
         }
 
-        public void rollDie() {
+        public void rollDice() {
             Random rand = new Random();
             mValue = rand.nextInt(MAX) + 1;
             setImage();

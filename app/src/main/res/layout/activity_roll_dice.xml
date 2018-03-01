@@ -7,20 +7,25 @@
     android:orientation="vertical"
     tools:context="com.example.gudla.dicecupcompulsory.RollDiceActivity">
 
-    <LinearLayout
-        android:id="@+id/linLDices"
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="horizontal">
+        android:layout_weight="1">
 
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linLDices"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="288dp"></LinearLayout>
+
+    </android.support.constraint.ConstraintLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="vertical">
+        android:layout_weight="1">
 
         <Button
             android:id="@+id/btnRoll"

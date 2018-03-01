@@ -34,7 +34,7 @@ public class Roll {
         return SIMPLE_DATE_FORMAT.format(mDate);
     }
 
-    public void addDie(int die)
+    public void addDice(int die)
     {
         mDice.add(die);
     }
