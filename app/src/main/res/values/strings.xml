@@ -1,6 +1,11 @@
 <resources>
-    <string name="app_name">DiceCupCompulsory</string>
+    <string name="app_name">Dice Cup</string>
     <string name="title_activity_results">Results</string>
+
+    <string name="clear">Clear</string>
+    <string name="history">History</string>
+    <string name="roll_dice">Roll the dice</string>
+    <string name="the_sum_is">The sum is:</string>
 
     <string-array name="SpinnerArray">
         <item>1</item>

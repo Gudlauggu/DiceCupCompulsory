@@ -8,6 +8,7 @@
     tools:context="com.example.gudla.dicecupcompulsory.RollDiceActivity">
 
     <LinearLayout
+        android:id="@+id/linLDices"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -19,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/btnRoll"
@@ -29,19 +30,19 @@
             android:layout_weight="1"
             android:text="Roll" />
 
-        <Button
-            android:id="@+id/btnResult"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Result" />
-
         <Spinner
             android:id="@+id/btnSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:entries="@array/SpinnerArray"/>
+            android:entries="@array/SpinnerArray" />
+
+        <Button
+            android:id="@+id/btnResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Result" />
 
     </LinearLayout>
 
