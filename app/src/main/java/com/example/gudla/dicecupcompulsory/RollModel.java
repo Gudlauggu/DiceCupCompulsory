@@ -1,6 +1,4 @@
-package com.example.gudla.dicecupcompulsory.Model;
-
-import com.example.gudla.dicecupcompulsory.BE.Roll;
+package com.example.gudla.dicecupcompulsory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +10,7 @@ import java.util.List;
 public class RollModel {
 
     private static RollModel instance = null;
-    private List<Roll> mDiceList;
+    private List<RollEntity> mDiceList;
 
     public static RollModel getInstance()
     {
@@ -27,15 +25,15 @@ public class RollModel {
     {
         this.mDiceList = new ArrayList<>();
     }
-    public ArrayList<Roll> getDiceList()
+    public ArrayList<RollEntity> getDiceList()
     {
         return new ArrayList<>(mDiceList);
     }
-    public void addRoll (Roll roll)
+    public void addRoll (RollEntity rollEntity)
     {
-        mDiceList.add(roll);
+        mDiceList.add(rollEntity);
     }
-    public Roll getRoll (int positionInList)
+    public RollEntity getRoll (int positionInList)
     {
         return mDiceList.get(positionInList);
     }

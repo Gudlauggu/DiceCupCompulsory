@@ -1,5 +1,6 @@
-package com.example.gudla.dicecupcompulsory.BE;
+package com.example.gudla.dicecupcompulsory;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -10,7 +11,7 @@ import java.util.Locale;
  * Created by gudla on 01/03/2018.
  */
 
-public class Roll {
+public class RollEntity implements Serializable{
 
     public static final SimpleDateFormat SIMPLE_DATE_FORMAT =
             new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
@@ -24,7 +25,7 @@ public class Roll {
 
     private List<Integer> mDice;
 
-    public Roll()
+    public RollEntity()
     {
         mDate = new Date();
         mDice = new ArrayList<>();

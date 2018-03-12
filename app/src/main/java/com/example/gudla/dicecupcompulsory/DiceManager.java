@@ -1,4 +1,4 @@
-package com.example.gudla.dicecupcompulsory.BLL;
+package com.example.gudla.dicecupcompulsory;
 
 import com.example.gudla.dicecupcompulsory.R;
 

@@ -13,9 +13,6 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 
-import com.example.gudla.dicecupcompulsory.BE.Roll;
-import com.example.gudla.dicecupcompulsory.Model.RollModel;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -57,12 +54,13 @@ public class RollDiceActivity extends AppCompatActivity {
         });
 
         btnResults.setOnClickListener(new View.OnClickListener() {
-            @Override
+           @Override
             public void onClick(View view) {
-                Intent i = new Intent(RollDiceActivity.this, ResultsActivity.class);
+               Intent i = new Intent(RollDiceActivity.this, HistoryActivity.class);
                 startActivity(i);
             }
         });
+
 
         if (savedInstanceState != null) {
             mDiceValues = (List<Integer>) savedInstanceState.getSerializable(DICE_KEY);
@@ -128,13 +126,13 @@ public class RollDiceActivity extends AppCompatActivity {
 
     private void rollDice()
     {
-        Roll roll = new Roll();
+        RollEntity rollEntity = new RollEntity();
         for (Dice dice: mDiceList)
         {
             dice.rollDice();
-            roll.addDice(dice.getValue());
+            rollEntity.addDice(dice.getValue());
         }
-        mRollModel.addRoll(roll);
+        mRollModel.addRoll(rollEntity);
     }
 
     private void createDice(int amountOfDice)
