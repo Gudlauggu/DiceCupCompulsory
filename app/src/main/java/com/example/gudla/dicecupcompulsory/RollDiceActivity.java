@@ -42,6 +42,7 @@ public class RollDiceActivity extends AppCompatActivity {
 
         Button btnResults = findViewById(R.id.btnResult);
         Button btnRoll = findViewById(R.id.btnRoll);
+        Button btnClearButton = findViewById(R.id.btnClearHistory);
         mDiceLayout = findViewById(R.id.linLDices);
 
         initlSpinner();
@@ -58,6 +59,13 @@ public class RollDiceActivity extends AppCompatActivity {
             public void onClick(View view) {
                Intent i = new Intent(RollDiceActivity.this, HistoryActivity.class);
                 startActivity(i);
+            }
+        });
+
+        btnClearButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mRollModel.clearRolls();
             }
         });
 
@@ -98,6 +106,7 @@ public class RollDiceActivity extends AppCompatActivity {
 
     private void initlSpinner()
     {
+        //checks the amount of dices and then creates appropriate amount
         mAmountOfDice = findViewById(R.id.btnSpinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.SpinnerArray, android.R.layout.simple_spinner_item);
@@ -124,6 +133,7 @@ public class RollDiceActivity extends AppCompatActivity {
         });
     }
 
+    //rolls the dices according to how many there are
     private void rollDice()
     {
         RollEntity rollEntity = new RollEntity();
@@ -135,6 +145,7 @@ public class RollDiceActivity extends AppCompatActivity {
         mRollModel.addRoll(rollEntity);
     }
 
+    //creates the dices and sets them in the appropriate rows
     private void createDice(int amountOfDice)
     {
         mDiceList = new ArrayList<>();
@@ -183,7 +194,7 @@ public class RollDiceActivity extends AppCompatActivity {
         private int mValue;
 
         /**
-         * Create new random die
+         * Create new random dices
          *
          * @param context
          */
@@ -203,7 +214,8 @@ public class RollDiceActivity extends AppCompatActivity {
             return mValue;
         }
 
-        public void rollDice() {
+        public void rollDice()
+        {
             Random rand = new Random();
             mValue = rand.nextInt(MAX) + 1;
             setImage();

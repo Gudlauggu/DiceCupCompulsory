@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 public class HistoryRow extends AppCompatActivity {
 
+    //sets the row in the list
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

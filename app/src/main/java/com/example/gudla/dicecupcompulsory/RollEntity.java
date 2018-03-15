@@ -40,13 +40,5 @@ public class RollEntity implements Serializable{
         mDice.add(die);
     }
 
-    public int getSum()
-    {
-        int sum = 0;
-        for (int dieValue: mDice) {
-            sum += dieValue;
-        }
-        return sum;
-    }
 
 }

@@ -48,6 +48,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryH
         Context mContext;
         RollEntity mRoll;
 
+        //sets the History Row into the view with the information needed
         public HistoryHolder(LayoutInflater inflater, ViewGroup parent) {
             super(inflater.inflate(R.layout.activity_history_row, parent, false));
             mContext = parent.getContext();
@@ -56,6 +57,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryH
             mDiceList = itemView.findViewById(R.id.linearDice);
         }
 
+        //Binds the information to the View
         public void bind(RollEntity roll) {
             mRoll = roll;
             mRollInfo.setText(roll.getTimeAsString());

@@ -21,9 +21,6 @@ public class HistoryActivity extends AppCompatActivity {
     private RollModel mRollModel;
     private HistoryAdapter mRecyclerHistoryAdapter;
 
-    public static Intent newIntent(Context packageContext){
-        return new Intent(packageContext, HistoryActivity.class);
-    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
